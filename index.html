@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScamShield</title>
+  <meta name="description" content="Paste a suspicious SMS, WhatsApp message or email and ScamShield checks it for common scam patterns. Runs fully in your browser.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+
+    <header class="site-header">
+      <div class="logo">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 7v8c0 7.5 5.1 13.4 12 15 6.9-1.6 12-7.5 12-15V7L16 2Z" fill="currentColor"/><path d="m11 16 3.5 3.5L21 13" stroke="var(--surface)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>ScamShield</span>
+      </div>
+      <h1>Is this message a scam?</h1>
+      <p class="intro">
+        Paste any SMS, WhatsApp message or email that looks off. ScamShield checks it against common fraud patterns
+        like fake KYC updates, "digital arrest" calls, lottery wins and part-time job tasks, and explains what it found in plain language.
+      </p>
+      <p class="privacy-note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3m-12 0h14v11H5V10Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+        Your message never leaves your device. Everything runs in your browser.
+      </p>
+    </header>
+
+    <section class="checker">
+      <label for="message-input" class="field-label">Suspicious message</label>
+      <textarea id="message-input" rows="6" placeholder="Paste the message here..."></textarea>
+
+      <div class="checker-actions">
+        <button id="check-btn" class="btn-primary" type="button">Check message</button>
+        <button id="clear-btn" class="btn-outline" type="button">Clear</button>
+      </div>
+
+      <div class="samples">
+        <span class="samples-label">Try a sample:</span>
+        <div id="sample-buttons" class="sample-buttons"></div>
+      </div>
+    </section>
+
+    <!-- Results get filled in by script.js -->
+    <section id="results" class="results" aria-live="polite"></section>
+
+    <section class="report-box">
+      <h2>Already lost money or shared details?</h2>
+      <p>Act fast. Banks can sometimes freeze the money if you report within the first few hours.</p>
+      <div class="report-grid">
+        <div class="report-item">
+          <span class="report-big">1930</span>
+          <span>National cyber crime helpline. Call to report financial fraud.</span>
+        </div>
+        <div class="report-item">
+          <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a>
+          <span>File an online complaint with the National Cyber Crime Reporting Portal.</span>
+        </div>
+        <div class="report-item">
+          <a href="https://sancharsaathi.gov.in/sfc/" target="_blank" rel="noopener">Chakshu on Sanchar Saathi</a>
+          <span>Report a suspicious SMS, call or WhatsApp message even if you didn't lose money.</span>
+        </div>
+      </div>
+      <p class="small-print">Also call your bank's official number (printed on the back of your card) to block your card or UPI.</p>
+    </section>
+
+    <footer class="site-footer">
+      <p>
+        ScamShield uses pattern matching, not magic. A "low risk" result doesn't guarantee a message is safe.
+        When in doubt, contact the company directly using a number from its official website or app.
+      </p>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="rules.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
